@@ -13,42 +13,10 @@ from src.models.config import PipelineConfig
 
 @pytest.fixture
 def sample_config():
-    """Create a minimal test configuration."""
-    config_dict = {
-        "grid": {
-            "row_bounds": [[0, 0.5], [0.5, 1.0]],
-            "column_bounds": [[0, 0.33], [0.33, 0.66], [0.66, 1.0]],
-            "target_columns": [0, 1, 2],
-            "column_names": {"0": "placement", "1": "character_name", "2": "score"}
-        },
-        "preprocessing_pipelines": [
-            {
-                "name": "simple_grayscale",
-                "priority": 0,
-                "steps": [{"method": "grayscale", "params": {}}]
-            }
-        ],
-        "ocr_engines": [
-            {
-                "engine": "tesseract",
-                "confidence_thresholds": {
-                    "placement": 0.5,
-                    "character_name": 0.5,
-                    "score": 0.5
-                },
-                "engine_params": {
-                    "psm_modes": {
-                        "placement": 6,
-                        "character_name": 6,
-                        "score": 6
-                    }
-                }
-            }
-        ],
-        "max_retries_per_cell": 1,
-        "output_dir": "test_outputs",
-        "save_intermediate": False
-    }
+    """Load test configuration from fixture file."""
+    fixture_path = Path(__file__).parent.parent / "fixtures" / "pipeline_config.json"
+    with open(fixture_path) as f:
+        config_dict = json.load(f)
     return PipelineConfig.from_dict(config_dict)
 
 

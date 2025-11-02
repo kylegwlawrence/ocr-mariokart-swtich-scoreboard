@@ -16,35 +16,37 @@ def data_service():
 
 @pytest.fixture
 def sample_predictions():
-    """Create sample OCR predictions."""
-    return [
-        OCRPrediction(
-            row_idx=0,
-            col_idx=1,
-            col_name="placement",
-            text="1",
-            confidence=0.95,
-            bounding_box={"left": 10, "top": 20, "width": 30, "height": 40},
-            passes_validation=True,
-            meets_threshold=True,
-            is_acceptable=True,
-            preprocessing_pipeline="test_pipeline",
-            ocr_engine="easyocr"
-        ),
-        OCRPrediction(
-            row_idx=0,
-            col_idx=3,
-            col_name="character_name",
-            text="Mario",
-            confidence=0.85,
-            bounding_box={"left": 50, "top": 20, "width": 80, "height": 40},
-            passes_validation=True,
-            meets_threshold=True,
-            is_acceptable=True,
-            preprocessing_pipeline="test_pipeline",
-            ocr_engine="easyocr"
+    """Load sample OCR predictions from fixture file."""
+    fixture_path = Path(__file__).parent.parent / "fixtures" / "sample_predictions.csv"
+    df = pd.read_csv(fixture_path)
+
+    # Convert DataFrame rows to OCRPrediction objects
+    predictions = []
+    for _, row in df.iterrows():
+        # Reconstruct bounding_box from individual columns
+        bounding_box = {
+            "left": int(row['bbox_left']),
+            "top": int(row['bbox_top']),
+            "width": int(row['bbox_width']),
+            "height": int(row['bbox_height'])
+        }
+
+        prediction = OCRPrediction(
+            row_idx=int(row['row_idx']),
+            col_idx=int(row['col_idx']),
+            col_name=row['col_name'],
+            text=row['text'],
+            confidence=float(row['confidence']),
+            bounding_box=bounding_box,
+            passes_validation=row['passes_validation'].lower() == 'true',
+            meets_threshold=row['meets_threshold'].lower() == 'true',
+            is_acceptable=row['is_acceptable'].lower() == 'true',
+            preprocessing_pipeline=row['preprocessing_pipeline'],
+            ocr_engine=row['ocr_engine']
         )
-    ]
+        predictions.append(prediction)
+
+    return predictions
 
 
 class TestDataService:
