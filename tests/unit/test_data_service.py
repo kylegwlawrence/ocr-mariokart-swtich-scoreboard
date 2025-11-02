@@ -1,0 +1,111 @@
+"""Unit tests for DataService."""
+
+import pytest
+import pandas as pd
+import tempfile
+from pathlib import Path
+from src.services.data_service import DataService
+from src.models.results import OCRPrediction
+
+
+@pytest.fixture
+def data_service():
+    """Create a DataService instance."""
+    return DataService()
+
+
+@pytest.fixture
+def sample_predictions():
+    """Create sample OCR predictions."""
+    return [
+        OCRPrediction(
+            row_idx=0,
+            col_idx=1,
+            col_name="placement",
+            text="1",
+            confidence=0.95,
+            bounding_box={"left": 10, "top": 20, "width": 30, "height": 40},
+            passes_validation=True,
+            meets_threshold=True,
+            is_acceptable=True,
+            preprocessing_pipeline="test_pipeline",
+            ocr_engine="easyocr"
+        ),
+        OCRPrediction(
+            row_idx=0,
+            col_idx=3,
+            col_name="character_name",
+            text="Mario",
+            confidence=0.85,
+            bounding_box={"left": 50, "top": 20, "width": 80, "height": 40},
+            passes_validation=True,
+            meets_threshold=True,
+            is_acceptable=True,
+            preprocessing_pipeline="test_pipeline",
+            ocr_engine="easyocr"
+        )
+    ]
+
+
+class TestDataService:
+    """Test suite for DataService."""
+
+    def test_save_predictions_to_csv(self, data_service, sample_predictions):
+        """Test saving predictions to CSV."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            csv_path = Path(tmpdir) / "test_predictions.csv"
+            data_service.save_predictions_to_csv(sample_predictions, str(csv_path))
+
+            # Verify file was created
+            assert csv_path.exists()
+
+            # Load and verify content
+            df = pd.read_csv(csv_path)
+            assert len(df) == 2
+            assert "text" in df.columns
+            assert "confidence" in df.columns
+
+    def test_get_best_predictions_per_cell(self, data_service):
+        """Test getting best prediction per cell."""
+        # Create multiple predictions for same cell
+        predictions = [
+            OCRPrediction(
+                row_idx=0, col_idx=1, col_name="placement", text="1",
+                confidence=0.7, bounding_box={"left": 0, "top": 0, "width": 10, "height": 10}
+            ),
+            OCRPrediction(
+                row_idx=0, col_idx=1, col_name="placement", text="2",
+                confidence=0.9, bounding_box={"left": 0, "top": 0, "width": 10, "height": 10}
+            )
+        ]
+
+        # Convert to DataFrame
+        df = pd.DataFrame([p.to_dict() for p in predictions])
+
+        # Get best predictions
+        best_df = data_service.get_best_predictions_per_cell(df)
+
+        # Should only have 1 row (highest confidence)
+        assert len(best_df) == 1
+        assert best_df.iloc[0]["text"] == "2"  # Higher confidence prediction
+
+    def test_merge_csv_files(self, data_service, sample_predictions):
+        """Test merging multiple CSV files."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmppath = Path(tmpdir)
+
+            # Create two CSV files
+            csv1 = tmppath / "file1.csv"
+            csv2 = tmppath / "file2.csv"
+
+            data_service.save_predictions_to_csv([sample_predictions[0]], str(csv1))
+            data_service.save_predictions_to_csv([sample_predictions[1]], str(csv2))
+
+            # Merge them
+            merged_path = tmppath / "merged.csv"
+            merged_df = data_service.merge_csv_files(str(tmppath), str(merged_path))
+
+            # Verify
+            assert len(merged_df) == 2
+            assert merged_path.exists()
+            assert "source_file" in merged_df.columns
