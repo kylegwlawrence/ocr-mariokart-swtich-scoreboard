@@ -203,6 +203,9 @@ class PipelineOrchestrator:
                     pred.preprocessing_pipeline = preprocessing_config.name
                     pred.metadata['image_path'] = image_path
                     pred.metadata['timestamp'] = timestamp
+                    # Add full preprocessing and OCR engine configs to metadata
+                    pred.metadata['preprocessing_config'] = preprocessing_config.to_dict()
+                    pred.metadata['ocr_engine_config'] = ocr_service.engine_config.to_dict()
 
                     # Get confidence threshold for this column
                     threshold = ocr_service.engine_config.confidence_thresholds.get(

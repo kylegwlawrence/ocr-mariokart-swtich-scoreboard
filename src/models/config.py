@@ -76,6 +76,17 @@ class PreprocessingStep:
     method: str
     params: Dict[str, Any] = field(default_factory=dict)
 
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary representation.
+
+        Returns:
+            Dictionary with method and params.
+        """
+        return {
+            "method": self.method,
+            "params": self.params
+        }
+
 
 @dataclass
 class PreprocessingConfig:
@@ -96,6 +107,18 @@ class PreprocessingConfig:
     name: str
     steps: List[PreprocessingStep]
     priority: int = 0
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary representation.
+
+        Returns:
+            Dictionary with name, priority, and steps.
+        """
+        return {
+            "name": self.name,
+            "priority": self.priority,
+            "steps": [step.to_dict() for step in self.steps]
+        }
 
 
 @dataclass
@@ -121,6 +144,18 @@ class OCREngineConfig:
         "score": 0.7
     })
     engine_params: Dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary representation.
+
+        Returns:
+            Dictionary with engine, confidence_thresholds, and engine_params.
+        """
+        return {
+            "engine": self.engine.value,
+            "confidence_thresholds": self.confidence_thresholds,
+            "engine_params": self.engine_params
+        }
 
 
 @dataclass
@@ -162,11 +197,14 @@ class PipelineConfig:
         """
         # Parse grid config
         grid_data = config_dict["grid"]
+        # Convert string keys to integers for column_names
+        column_names_raw = grid_data.get("column_names", {1: "placement", 3: "character_name", 5: "score"})
+        column_names = {int(k): v for k, v in column_names_raw.items()}
         grid = GridConfig(
             row_bounds=grid_data["row_bounds"],
             column_bounds=grid_data["column_bounds"],
             target_columns=grid_data.get("target_columns", [1, 3, 5]),
-            column_names=grid_data.get("column_names", {1: "placement", 3: "character_name", 5: "score"})
+            column_names=column_names
         )
 
         # Parse preprocessing pipelines

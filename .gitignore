@@ -33,3 +33,14 @@ Thumbs.db
 
 # Claude
 .claude/
+prompt.txt
+
+# Inputs directory - ignore all except EXAMPLE files
+inputs/*
+!inputs/**/EXAMPLE
+!inputs/**/EXAMPLE.*
+
+# Outputs directory - ignore all except EXAMPLE files
+outputs/*
+!outputs/**/EXAMPLE
+!outputs/**/EXAMPLE.*

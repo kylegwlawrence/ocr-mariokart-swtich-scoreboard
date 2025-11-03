@@ -159,18 +159,10 @@ class DataService:
         """
         cleaned_df = df.copy()
 
-        # Parse preprocessing_pipeline if it's a string
-        if 'preprocessing_pipeline' in cleaned_df.columns:
-            logger.debug("Parsing preprocessing_pipeline column")
-            # Already parsed, no need for literal_eval
-
-        # Create a unique configuration identifier
-        if 'preprocessing_pipeline' in cleaned_df.columns and 'ocr_engine' in cleaned_df.columns:
-            cleaned_df['config_id'] = (
-                cleaned_df['preprocessing_pipeline'].astype(str) +
-                "_" +
-                cleaned_df['ocr_engine'].astype(str)
-            )
+        # Parse runtime_config if it's a string (JSON)
+        if 'runtime_config' in cleaned_df.columns:
+            logger.debug("Parsing runtime_config column")
+            # Already parsed from JSON in to_dict(), no need for literal_eval
 
         # Filter only acceptable predictions if column exists
         if 'is_acceptable' in cleaned_df.columns:

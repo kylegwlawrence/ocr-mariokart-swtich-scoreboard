@@ -66,7 +66,7 @@ class TesseractService(BaseOCRService):
         Returns:
             Tesseract config string.
         """
-        psm = self.psm_modes.get(col_name, 6)
+        psm = self.psm_modes.get(col_name)
 
         if col_name in ["placement", "score"]:
             # Digits only
@@ -142,11 +142,6 @@ class TesseractService(BaseOCRService):
                     "top": data['top'][i],
                     "width": data['width'][i],
                     "height": data['height'][i]
-                },
-                ocr_engine="tesseract",
-                metadata={
-                    "psm": self.psm_modes.get(col_name, 6),
-                    "tesseract_config": config
                 }
             )
 

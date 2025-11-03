@@ -6,6 +6,7 @@ Dataclasses for storing OCR predictions and results.
 from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any
 from datetime import datetime
+import json
 
 
 @dataclass
@@ -23,7 +24,6 @@ class OCRPrediction:
         meets_threshold: Whether confidence meets threshold.
         is_acceptable: Whether prediction is both valid and confident.
         preprocessing_pipeline: Name of preprocessing pipeline used.
-        ocr_engine: Name of OCR engine used.
         metadata: Additional metadata.
     """
     row_idx: int
@@ -36,7 +36,6 @@ class OCRPrediction:
     meets_threshold: bool = False
     is_acceptable: bool = False
     preprocessing_pipeline: str = ""
-    ocr_engine: str = ""
     metadata: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -45,7 +44,18 @@ class OCRPrediction:
         Returns:
             Dictionary representation.
         """
-        return {
+        # Extract preprocessing and OCR engine configs from metadata
+        preprocessing_config = self.metadata.get("preprocessing_config", {})
+        ocr_engine_config = self.metadata.get("ocr_engine_config", {})
+
+        # Combine both configs into a single runtime_config JSON string
+        runtime_config = {
+            "preprocessing_config": preprocessing_config,
+            "ocr_engine_config": ocr_engine_config
+        }
+
+        # Create the base dictionary
+        result = {
             "row_idx": self.row_idx,
             "col_idx": self.col_idx,
             "col_name": self.col_name,
@@ -58,10 +68,15 @@ class OCRPrediction:
             "passes_validation": self.passes_validation,
             "meets_threshold": self.meets_threshold,
             "is_acceptable": self.is_acceptable,
-            "preprocessing_pipeline": self.preprocessing_pipeline,
-            "ocr_engine": self.ocr_engine,
-            **self.metadata
+            "runtime_config": json.dumps(runtime_config)
         }
+
+        # Add any other metadata fields (excluding the config fields we already handled)
+        for key, value in self.metadata.items():
+            if key not in ["preprocessing_config", "ocr_engine_config"]:
+                result[key] = value
+
+        return result
 
 
 @dataclass

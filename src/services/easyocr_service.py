@@ -118,8 +118,7 @@ class EasyOCRService(BaseOCRService):
                     "top": top,
                     "width": width,
                     "height": height
-                },
-                ocr_engine="easyocr"
+                }
             )
 
             predictions.append(prediction)

@@ -3,7 +3,7 @@
 from .config import (
     GridConfig,
     PreprocessingConfig,
-    OCRConfig,
+    OCREngineConfig,
     PipelineConfig,
 )
 from .results import OCRPrediction, CellResult, ImageResult
@@ -11,7 +11,7 @@ from .results import OCRPrediction, CellResult, ImageResult
 __all__ = [
     "GridConfig",
     "PreprocessingConfig",
-    "OCRConfig",
+    "OCREngineConfig",
     "PipelineConfig",
     "OCRPrediction",
     "CellResult",

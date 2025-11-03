@@ -25,10 +25,10 @@ def sample_predictions():
     for _, row in df.iterrows():
         # Reconstruct bounding_box from individual columns
         bounding_box = {
-            "left": int(row['bbox_left']),
-            "top": int(row['bbox_top']),
-            "width": int(row['bbox_width']),
-            "height": int(row['bbox_height'])
+            "left": int(row['left']),
+            "top": int(row['top']),
+            "width": int(row['width']),
+            "height": int(row['height'])
         }
 
         prediction = OCRPrediction(
@@ -38,9 +38,9 @@ def sample_predictions():
             text=row['text'],
             confidence=float(row['confidence']),
             bounding_box=bounding_box,
-            passes_validation=row['passes_validation'].lower() == 'true',
-            meets_threshold=row['meets_threshold'].lower() == 'true',
-            is_acceptable=row['is_acceptable'].lower() == 'true',
+            passes_validation=row['passes_validation'] == True,
+            meets_threshold=row['meets_threshold'] == True,
+            is_acceptable=row['is_acceptable'] == True,
             preprocessing_pipeline=row['preprocessing_pipeline'],
             ocr_engine=row['ocr_engine']
         )
@@ -63,9 +63,26 @@ class TestDataService:
 
             # Load and verify content
             df = pd.read_csv(csv_path)
-            assert len(df) == 2
+            assert len(df) == 6
+            assert "row_idx" in df.columns
+            assert "col_idx" in df.columns
+            assert "col_name" in df.columns
             assert "text" in df.columns
-            assert "confidence" in df.columns
+
+            assert "left" in df.columns
+            assert "top" in df.columns
+            assert "width" in df.columns
+            assert "height" in df.columns
+
+            assert "passes_validation" in df.columns
+            assert "meets_threshold" in df.columns
+            assert "is_acceptable" in df.columns
+            assert "preprocessing_pipeline" in df.columns
+            assert "psm" in df.columns
+            assert "tesseract_config" in df.columns
+            assert "image_path" in df.columns
+            assert "timestamp" in df.columns
+            
 
     def test_get_best_predictions_per_cell(self, data_service):
         """Test getting best prediction per cell."""

@@ -1,4 +1,4 @@
-row_idx,col_idx,col_name,text,confidence,bbox_left,bbox_top,bbox_width,bbox_height,passes_validation,meets_threshold,is_acceptable,preprocessing_pipeline,ocr_engine
+row_idx,col_idx,col_name,text,confidence,left,top,width,height,passes_validation,meets_threshold,is_acceptable,preprocessing_pipeline,ocr_engine,psm,tesseract_config,image_path,timestamp
 0,1,placement,1,0.95,10,20,30,40,True,True,True,test_pipeline,easyocr
 0,3,character_name,Mario,0.85,50,20,80,40,True,True,True,test_pipeline,easyocr
 1,1,placement,2,0.92,10,120,30,40,True,True,True,test_pipeline,easyocr
