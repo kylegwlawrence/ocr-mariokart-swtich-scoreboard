@@ -13,6 +13,7 @@ from typing import List, Optional
 
 from src.utils.logging_config import setup_logging, get_logger
 from src.utils.file_utils import get_files_by_extension
+from src.utils.flatten_config_data import process_csv
 from src.services.orchestrator import PipelineOrchestrator
 from src.services.data_service import DataService
 from src.services.conversion_service import ConversionService
@@ -206,8 +207,7 @@ def main():
 
         process_batch(image_paths, orchestrator, data_service, config.output_dir)
 
-    # Merge results if requested
-    if args.merge_results:
+        # Merge results if a folder is passed in
         logger.info("Merging CSV results...")
         data_folder = Path(config.output_dir) / "data"
         merged_path = data_folder / "merged_predictions.csv"
@@ -217,8 +217,10 @@ def main():
         scoreboard_path = data_folder / "scoreboard.csv"
         data_service.create_scoreboard_table(merged_df, str(scoreboard_path))
 
-    logger.info("Processing complete!")
+        # clean predictions data for analysis
+        process_csv(input_csv_path=str(merged_path), output_csv_path=str(data_folder / "clean_predictions.csv"))
 
+    logger.info("Processing complete!")
 
 if __name__ == "__main__":
     main()

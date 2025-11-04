@@ -1,0 +1,77 @@
+{
+  "preprocessing_methods": {
+    "grayscale": {
+      "params": {}
+    },
+    "gaussian_blur": {
+      "params": {
+        "kernel": "",
+        "sigmaX": "",
+        "sigmaY": ""
+      }
+    },
+    "edge_detection": {
+      "params": {
+        "hysteresis_min": "",
+        "hysteresis_max": ""
+      }
+    },
+    "dilate": {
+      "params": {
+        "kernel": "",
+        "iterations": ""
+      }
+    },
+    "erode": {
+      "params": {
+        "kernel": "",
+        "iterations": ""
+      }
+    },
+    "threshold": {
+      "params": {
+        "threshold": "",
+        "max_value": ""
+      }
+    },
+    "adaptive_threshold": {
+      "params": {
+        "max_value": "",
+        "block_size": "",
+        "C": ""
+      }
+    },
+    "inversion": {
+      "params": {}
+    },
+    "morphology": {
+      "params": {
+        "operation": "",
+        "kernel": ""
+      }
+    },
+    "blur": {
+      "params": {
+        "kernel": ""
+      }
+    },
+    "contrast": {
+      "params": {
+        "alpha": "",
+        "beta": ""
+      }
+    },
+    "median_blur": {
+      "params": {
+        "ksize": ""
+      }
+    },
+    "bilateral_filter": {
+      "params": {
+        "d": "",
+        "sigmaColor": "",
+        "sigmaSpace": ""
+      }
+    }
+  }
+}

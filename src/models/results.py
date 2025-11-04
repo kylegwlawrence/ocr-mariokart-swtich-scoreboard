@@ -7,7 +7,11 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 import json
+from pathlib import Path
+import logging
+from src.utils.enforce_pipeline_steps import _get_complete_preprocessing_config # enforces each pipeline config to have every method, even if not used, to make data cleaning easier
 
+logger = logging.getLogger(__name__)
 
 @dataclass
 class OCRPrediction:
@@ -48,9 +52,12 @@ class OCRPrediction:
         preprocessing_config = self.metadata.get("preprocessing_config", {})
         ocr_engine_config = self.metadata.get("ocr_engine_config", {})
 
+        # Ensure preprocessing config includes all possible preprocessing methods
+        complete_preprocessing_config = _get_complete_preprocessing_config(preprocessing_config)
+
         # Combine both configs into a single runtime_config JSON string
         runtime_config = {
-            "preprocessing_config": preprocessing_config,
+            "preprocessing_config": complete_preprocessing_config,
             "ocr_engine_config": ocr_engine_config
         }
 

@@ -31,56 +31,55 @@
   },
   "preprocessing_pipelines": [
     {
-      "name": "one",
+      "name": "gb5_ed150200",
       "priority": 0,
       "steps": [
         {"method": "grayscale", "params": {}},
         {"method": "gaussian_blur", "params": {"kernel": [5, 5], "sigmaX": 0, "sigmaY": 0}},
-        {"method": "edge_detection", "params": {"hysteresis_min": 100, "hysteresis_max": 150}}
+        {"method": "edge_detection", "params": {"hysteresis_min": 150, "hysteresis_max": 200}}
       ]
     },
     {
-      "name": "two",
+      "name": "gb7_ed150200",
       "priority": 1,
       "steps": [
         {"method": "grayscale", "params": {}},
-        {"method": "gaussian_blur", "params": {"kernel": [5, 5], "sigmaX": 0, "sigmaY": 0}},
-        {"method": "edge_detection", "params": {"hysteresis_min": 100, "hysteresis_max": 150}},
-        {"method": "dilate", "params": {"kernel": [5, 5], "iterations": 1}},
-        {"method": "erode", "params": {"kernel": [5, 5], "iterations": 1}}
+        {"method": "gaussian_blur", "params": {"kernel": [7, 7], "sigmaX": 0, "sigmaY": 0}},
+        {"method": "edge_detection", "params": {"hysteresis_min": 150, "hysteresis_max": 200}}
       ]
     },
     {
-      "name": "three",
+      "name": "gb7_ed150200_de7",
       "priority": 2,
       "steps": [
         {"method": "grayscale", "params": {}},
         {"method": "gaussian_blur", "params": {"kernel": [7, 7], "sigmaX": 0, "sigmaY": 0}},
-        {"method": "edge_detection", "params": {"hysteresis_min": 100, "hysteresis_max": 150}},
+        {"method": "edge_detection", "params": {"hysteresis_min": 150, "hysteresis_max": 200}},
         {"method": "dilate", "params": {"kernel": [7, 7], "iterations": 1}},
         {"method": "erode", "params": {"kernel": [7, 7], "iterations": 1}}
       ]
     },
     {
-      "name": "four",
+      "name": "gb5_ed125175_de5",
       "priority": 3,
       "steps": [
         {"method": "grayscale", "params": {}},
         {"method": "gaussian_blur", "params": {"kernel": [5, 5], "sigmaX": 0, "sigmaY": 0}},
-        {"method": "edge_detection", "params": {"hysteresis_min": 150, "hysteresis_max": 225}},
+        {"method": "edge_detection", "params": {"hysteresis_min": 125, "hysteresis_max": 175}},
         {"method": "dilate", "params": {"kernel": [5, 5], "iterations": 1}},
         {"method": "erode", "params": {"kernel": [5, 5], "iterations": 1}}
       ]
     },
     {
-      "name": "five",
+      "name": "gb7_ed125175_de7",
       "priority": 4,
       "steps": [
         {"method": "grayscale", "params": {}},
         {"method": "gaussian_blur", "params": {"kernel": [7, 7], "sigmaX": 0, "sigmaY": 0}},
-        {"method": "edge_detection", "params": {"hysteresis_min": 150, "hysteresis_max": 225}},
-        {"method": "dilate", "params": {"kernel": [5, 5], "iterations": 1}},
-        {"method": "erode", "params": {"kernel": [5, 5], "iterations": 1}}
+        {"method": "inversion", "params": {}},
+        {"method": "edge_detection", "params": {"hysteresis_min": 125, "hysteresis_max": 175}},
+        {"method": "dilate", "params": {"kernel": [7, 7], "iterations": 1}},
+        {"method": "erode", "params": {"kernel": [7, 7], "iterations": 1}}
       ]
     }
   ],

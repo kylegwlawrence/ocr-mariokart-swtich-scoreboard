@@ -8,6 +8,7 @@ import logging
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 import pandas as pd
+import json
 
 from ..models.results import OCRPrediction, ImageResult
 
@@ -78,7 +79,7 @@ class DataService:
         output_path: str,
         pattern: str = "*.csv"
     ) -> pd.DataFrame:
-        """Merge multiple CSV files into a single DataFrame.
+        """Merge multiple CSV files into a single DataFrame and flattens runtime_config key:values into columns
 
         Args:
             input_folder: Folder containing CSV files.
@@ -124,7 +125,7 @@ class DataService:
         # Concatenate all DataFrames
         merged_df = pd.concat(dataframes, ignore_index=True)
 
-        # Save merged CSV
+        # Save CSV
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         merged_df.to_csv(output_path, index=False)
 
@@ -163,19 +164,6 @@ class DataService:
         if 'runtime_config' in cleaned_df.columns:
             logger.debug("Parsing runtime_config column")
             # Already parsed from JSON in to_dict(), no need for literal_eval
-
-        # Filter only acceptable predictions if column exists
-        if 'is_acceptable' in cleaned_df.columns:
-            acceptable_count = cleaned_df['is_acceptable'].sum()
-            total_count = len(cleaned_df)
-            logger.info(
-                f"Acceptable predictions: {acceptable_count}/{total_count} "
-                f"({100 * acceptable_count / total_count:.1f}%)"
-            )
-
-        # Sort by confidence (descending)
-        if 'confidence' in cleaned_df.columns:
-            cleaned_df = cleaned_df.sort_values('confidence', ascending=False)
 
         # Save if output path provided
         if output_path:

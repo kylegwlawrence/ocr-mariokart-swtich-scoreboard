@@ -1,0 +1,9715 @@
+{
+  "grid": {
+    "row_bounds": [
+      [0, 0.08333],
+      [0.08333, 0.16666],
+      [0.16666, 0.25],
+      [0.25, 0.33333],
+      [0.33333, 0.41666],
+      [0.41666, 0.5],
+      [0.5, 0.58333],
+      [0.58333, 0.66666],
+      [0.66666, 0.75],
+      [0.75, 0.83333],
+      [0.83333, 0.91666],
+      [0.91666, 1.0]
+    ],
+    "column_bounds": [
+      [0, 0.07],
+      [0.07, 0.16],
+      [0.16, 0.24],
+      [0.24, 0.7],
+      [0.7, 0.915],
+      [0.915, 1.0]
+    ],
+    "target_columns": [1, 3, 5],
+    "column_names": {
+      "1": "placement",
+      "3": "character_name",
+      "5": "score"
+    }
+  },
+  "preprocessing_pipelines": [
+  {
+    "name": "pipeline_00327",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00057",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00012",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00140",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00125",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00114",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00071",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00052",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00346",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00279",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00044",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00302",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00216",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00016",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00015",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00047",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00111",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00119",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00258",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00308",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00013",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00287",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00101",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00332",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00368",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00214",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00112",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00229",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00301",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00142",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00003",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00081",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00365",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00174",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00348",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00079",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00110",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00172",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00370",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00362",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00194",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00049",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00183",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00176",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00309",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00135",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00022",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00235",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00274",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00063",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00193",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00040",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00282",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00150",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00321",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00316",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00185",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00295",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00098",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00035",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00023",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00116",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00148",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00326",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00360",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00051",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00337",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00343",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00232",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00186",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00083",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00189",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00181",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00107",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00136",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00036",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00087",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00273",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00373",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00307",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00236",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00311",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00138",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00285",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00351",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00166",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00028",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00117",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00364",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00161",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00205",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00137",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00033",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00108",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00288",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00284",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00255",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00202",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00234",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00073",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00354",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00371",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00126",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00134",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00219",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00204",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00323",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00293",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00070",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00260",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00252",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00046",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00024",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00056",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00078",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00369",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00345",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00032",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00197",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00195",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00239",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00128",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00005",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00344",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00184",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00029",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00254",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00226",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00286",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00192",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00068",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00196",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00164",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00349",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00291",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00075",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00361",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00314",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00322",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00000",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00253",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00224",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00237",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00067",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00256",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00359",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00045",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00129",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00027",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00222",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00160",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00076",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00215",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00163",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00230",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00155",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00050",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00039",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00095",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00333",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00041",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00320",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00199",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00277",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00238",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00153",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00082",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00299",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00004",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00243",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00092",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00206",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00263",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00061",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00014",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00272",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00145",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00020",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00021",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00187",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00124",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00017",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00296",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00303",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00268",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00377",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> inversion -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00168",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00121",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00374",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00042",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00353",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> inversion -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00352",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00228",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00325",
+    "description": "Pipeline: grayscale -> gaussian_blur -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00054",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00261",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            7,
+            7
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 150
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00334",
+    "description": "Pipeline: grayscale -> gaussian_blur -> dilate -> erode -> edge_detection -> inversion",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 150
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00312",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 100,
+          "hysteresis_max": 200
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00342",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "pipeline_00102",
+    "description": "Pipeline: grayscale -> gaussian_blur -> inversion -> edge_detection -> dilate -> erode",
+    "steps": [
+      {
+        "method": "grayscale",
+        "params": {}
+      },
+      {
+        "method": "gaussian_blur",
+        "params": {
+          "kernel": [
+            5,
+            5
+          ],
+          "sigmaX": 0,
+          "sigmaY": 0
+        }
+      },
+      {
+        "method": "inversion",
+        "params": {}
+      },
+      {
+        "method": "edge_detection",
+        "params": {
+          "hysteresis_min": 125,
+          "hysteresis_max": 175
+        }
+      },
+      {
+        "method": "dilate",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      },
+      {
+        "method": "erode",
+        "params": {
+          "kernel": [
+            9,
+            9
+          ],
+          "iterations": 1
+        }
+      }
+    ]
+  }
+],
+  "ocr_engines": [
+    {
+      "engine": "tesseract",
+      "confidence_thresholds": {
+        "placement": 0.6,
+        "character_name": 0.5,
+        "score": 0.7
+      },
+      "engine_params": {
+        "languages": ["en"],
+        "use_gpu": false
+      }
+    }
+  ],
+  "max_retries_per_cell": 40,
+  "output_dir": "outputs/predictions/data",
+  "save_intermediate": false
+}
