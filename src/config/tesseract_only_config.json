@@ -60,6 +60,11 @@
     }
   ],
   "max_retries_per_cell": 1,
-  "output_dir": "game_images/outputs",
+  "output_paths": {
+    "annotations_output_path": "outputs/annotations",
+    "predictions_output_path": "outputs/predictions",
+    "clean_data_output_path": "outputs/clean_data/clean_predictions.csv",
+    "preprocessed_images_output_path": "outputs/preprocessed"
+  },
   "save_intermediate": false
 }

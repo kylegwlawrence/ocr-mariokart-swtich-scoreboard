@@ -15,6 +15,23 @@ from ..models.results import OCRPrediction, ImageResult
 logger = logging.getLogger(__name__)
 
 
+def _validate_output_folder_exists(output_path: str) -> None:
+    """Validate that the parent folder of the output path exists.
+
+    Args:
+        output_path: Path to the output file.
+
+    Raises:
+        FileNotFoundError: If the parent folder does not exist.
+    """
+    output_folder = Path(output_path).parent
+    if not output_folder.exists():
+        raise FileNotFoundError(
+            f"Output folder does not exist: {output_folder}. "
+            f"Please create the directory before saving files."
+        )
+
+
 class DataService:
     """Service for managing OCR prediction data.
 
@@ -35,19 +52,22 @@ class DataService:
         Args:
             predictions: List of OCR predictions.
             output_path: Path to save CSV file.
+
+        Raises:
+            FileNotFoundError: If the output folder does not exist.
         """
         if not predictions:
             logger.warning("No predictions to save")
             return
+
+        # Validate output folder exists
+        _validate_output_folder_exists(output_path)
 
         # Convert predictions to dictionaries
         data = [pred.to_dict() for pred in predictions]
 
         # Create DataFrame
         df = pd.DataFrame(data)
-
-        # Ensure output directory exists
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
         # Save to CSV
         df.to_csv(output_path, index=False)
@@ -88,6 +108,10 @@ class DataService:
 
         Returns:
             Merged DataFrame.
+
+        Raises:
+            ValueError: If input folder does not exist.
+            FileNotFoundError: If the output folder does not exist.
         """
         input_path = Path(input_folder)
 
@@ -125,8 +149,8 @@ class DataService:
         # Concatenate all DataFrames
         merged_df = pd.concat(dataframes, ignore_index=True)
 
-        # Save CSV
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        # Validate output folder exists
+        _validate_output_folder_exists(output_path)
         merged_df.to_csv(output_path, index=False)
 
         logger.info(
@@ -157,6 +181,9 @@ class DataService:
 
         Returns:
             Cleaned DataFrame.
+
+        Raises:
+            FileNotFoundError: If the output folder does not exist.
         """
         cleaned_df = df.copy()
 
@@ -167,7 +194,7 @@ class DataService:
 
         # Save if output path provided
         if output_path:
-            Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+            _validate_output_folder_exists(output_path)
             cleaned_df.to_csv(output_path, index=False)
             logger.info(f"Saved cleaned data to {output_path}")
 
@@ -216,6 +243,9 @@ class DataService:
 
         Returns:
             Structured scoreboard DataFrame.
+
+        Raises:
+            FileNotFoundError: If the output folder does not exist.
         """
         if 'row_idx' not in df.columns or 'col_name' not in df.columns or 'text' not in df.columns:
             logger.error("DataFrame missing required columns for pivot")
@@ -243,7 +273,7 @@ class DataService:
 
             # Save if output path provided
             if output_path:
-                Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+                _validate_output_folder_exists(output_path)
                 scoreboard.to_csv(output_path, index=False)
                 logger.info(f"Saved scoreboard table to {output_path}")
 

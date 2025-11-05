@@ -276,7 +276,7 @@ class PipelineOrchestrator:
 
         Args:
             image_path: Original image path.
-            output_dir: Base output directory.
+            output_dir: Base output directory (deprecated, kept for compatibility).
             output_type: Type of output ('grid', 'annotated', 'csv', etc.).
             timestamp: Processing timestamp.
 
@@ -286,23 +286,26 @@ class PipelineOrchestrator:
         image_name = Path(image_path).stem
         timestamp_clean = timestamp.replace(" ", "_").replace(":", "-")
 
-        subdir_map = {
-            "grid": "grids",
-            "annotated": "annotations",
-            "csv": "data",
-            "preprocessed": "preprocessed"
+        # Map output types to configured paths
+        output_paths_map = {
+            "grid": self.config.output_paths.annotations_output_path,
+            "annotated": self.config.output_paths.annotations_output_path,
+            "csv": self.config.output_paths.predictions_output_path,
+            "preprocessed": self.config.output_paths.preprocessed_images_output_path
         }
 
-        subdir = subdir_map.get(output_type, output_type)
+        # Map output types to file extensions
         ext_map = {
             "grid": ".jpg",
             "annotated": ".jpg",
             "csv": ".csv",
             "preprocessed": ".jpg"
         }
+
+        output_base_path = output_paths_map.get(output_type, self.config.output_paths.predictions_output_path)
         ext = ext_map.get(output_type, ".jpg")
 
-        output_path = Path(output_dir) / subdir / f"{image_name}_{timestamp_clean}{ext}"
+        output_path = Path(output_base_path) / f"{image_name}_{timestamp_clean}{ext}"
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         return str(output_path)
@@ -318,7 +321,7 @@ class PipelineOrchestrator:
 
         Args:
             image_path: Original image path.
-            output_dir: Base output directory.
+            output_dir: Base output directory (deprecated, kept for compatibility).
             pipeline_name: Name of preprocessing pipeline.
             timestamp: Processing timestamp.
 
@@ -329,7 +332,7 @@ class PipelineOrchestrator:
         timestamp_clean = timestamp.replace(" ", "_").replace(":", "-")
 
         output_path = (
-            Path(output_dir) / "preprocessed" /
+            Path(self.config.output_paths.preprocessed_images_output_path) /
             f"{image_name}_{pipeline_name}_{timestamp_clean}.jpg"
         )
         output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -64,7 +64,8 @@ def process_single_image(
     )
 
     # Save predictions to CSV
-    csv_path = Path(output_dir) / "data" / f"{Path(image_path).stem}_{result.timestamp.replace(' ', '_').replace(':', '-')}.csv"
+    predictions_dir = orchestrator.config.output_paths.predictions_output_path
+    csv_path = Path(predictions_dir) / f"{Path(image_path).stem}_{result.timestamp.replace(' ', '_').replace(':', '-')}.csv"
     data_service.save_image_result(result, str(csv_path), include_all_predictions=True)
 
     # Log summary
@@ -209,16 +210,26 @@ def main():
 
         # Merge results if a folder is passed in
         logger.info("Merging CSV results...")
-        data_folder = Path(config.output_dir) / "data"
-        merged_path = data_folder / "merged_predictions.csv"
-        merged_df = data_service.merge_csv_files(str(data_folder), str(merged_path))
+        predictions_folder = Path(config.output_paths.predictions_output_path)
+        merged_path = predictions_folder / "merged_predictions.csv"
+        merged_df = data_service.merge_csv_files(str(predictions_folder), str(merged_path))
 
         # Create scoreboard table
-        scoreboard_path = data_folder / "scoreboard.csv"
+        scoreboard_path = predictions_folder / "scoreboard.csv"
         data_service.create_scoreboard_table(merged_df, str(scoreboard_path))
 
         # clean predictions data for analysis
-        process_csv(input_csv_path=str(merged_path), output_csv_path=str(data_folder / "clean_predictions.csv"))
+        clean_data_path = Path(config.output_paths.clean_data_output_path)
+        clean_data_folder = clean_data_path.parent
+
+        # Verify output folder exists before writing
+        if not clean_data_folder.exists():
+            raise FileNotFoundError(
+                f"Output folder does not exist: {clean_data_folder}. "
+                f"Please create the directory before running the pipeline."
+            )
+
+        process_csv(input_csv_path=str(merged_path), output_csv_path=str(clean_data_path))
 
     logger.info("Processing complete!")
 

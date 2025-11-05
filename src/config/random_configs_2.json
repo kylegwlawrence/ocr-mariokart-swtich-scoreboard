@@ -4694,6 +4694,11 @@
     }
   ],
   "max_retries_per_cell": 40,
-  "output_dir": "outputs/predictions/data",
+  "output_paths": {
+    "annotations_output_path": "outputs/annotations",
+    "predictions_output_path": "outputs/predictions",
+    "clean_data_output_path": "outputs/clean_data",
+    "preprocessed_images_output_path": "outputs/preprocessed"
+  },
   "save_intermediate": false
 }

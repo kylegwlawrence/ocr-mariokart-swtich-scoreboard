@@ -159,6 +159,35 @@ class OCREngineConfig:
 
 
 @dataclass
+class OutputPathsConfig:
+    """Configuration for output folder paths and files.
+
+    Attributes:
+        annotations_output_path: Folder name for annotated images (default: "outputs/annotations").
+        predictions_output_path: Folder name for prediction CSVs (default: "outputs/predictions").
+        clean_data_output_path: Path to the cleaned data CSV file (default: "outputs/clean_data/clean_predictions.csv").
+        preprocessed_images_output_path: Folder name for preprocessed images (default: "outputs/preprocessed").
+    """
+    annotations_output_path: str = "outputs/annotations"
+    predictions_output_path: str = "outputs/predictions"
+    clean_data_output_path: str = "outputs/clean_data/clean_predictions.csv"
+    preprocessed_images_output_path: str = "outputs/preprocessed"
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary representation.
+
+        Returns:
+            Dictionary with all output paths.
+        """
+        return {
+            "annotations_output_path": self.annotations_output_path,
+            "predictions_output_path": self.predictions_output_path,
+            "clean_data_output_path": self.clean_data_output_path,
+            "preprocessed_images_output_path": self.preprocessed_images_output_path
+        }
+
+
+@dataclass
 class PipelineConfig:
     """Complete pipeline configuration.
 
@@ -175,6 +204,7 @@ class PipelineConfig:
             per cell before giving up (default: 3). Limited by the number of
             configured pipelines.
         output_dir: Base directory for saving results, logs, and intermediate images.
+        output_paths: Configuration for specific output folder paths.
         save_intermediate: If True, saves preprocessed images for each pipeline
             attempt (useful for debugging preprocessing effectiveness).
     """
@@ -183,6 +213,7 @@ class PipelineConfig:
     ocr_engines: List[OCREngineConfig]
     max_retries_per_cell: int = 3
     output_dir: str = "game_images/outputs"
+    output_paths: OutputPathsConfig = field(default_factory=OutputPathsConfig)
     save_intermediate: bool = False
 
     @classmethod
@@ -236,11 +267,21 @@ class PipelineConfig:
                 )
             )
 
+        # Parse output paths if provided
+        output_paths_data = config_dict.get("output_paths", {})
+        output_paths = OutputPathsConfig(
+            annotations_output_path=output_paths_data.get("annotations_output_path", "outputs/annotations"),
+            predictions_output_path=output_paths_data.get("predictions_output_path", "outputs/predictions"),
+            clean_data_output_path=output_paths_data.get("clean_data_output_path", "outputs/clean_data/clean_predictions.csv"),
+            preprocessed_images_output_path=output_paths_data.get("preprocessed_images_output_path", "outputs/preprocessed")
+        )
+
         return cls(
             grid=grid,
             preprocessing_pipelines=preprocessing_pipelines,
             ocr_engines=ocr_engines,
             max_retries_per_cell=config_dict.get("max_retries_per_cell", 3),
             output_dir=config_dict.get("output_dir", "game_images/outputs"),
+            output_paths=output_paths,
             save_intermediate=config_dict.get("save_intermediate", False)
         )
